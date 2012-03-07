@@ -15,8 +15,8 @@ configure_target(){
   target_file=`basename $1`
   target_directory=${working_directory}/`echo ${1} | sed "s|^.*://||" | sed "s|/${target_file}$||"`
   ascii_file=${target_file}${additional_extension_ascii}
-  po_file=${target_file}${additional_extension_po}
-  translated_file=${target_file}${additional_extension_translated}
+  po_file=${target_file}${insertional_extension_language_code}${additional_extension_po}
+  translated_file=`echo ${target_file} | sed "s|\.[^.]*$||"`${additional_extension_translated}.`echo ${target_file} | sed "s|^.*\.||"`
 }
 
 get_alternative(){
@@ -46,7 +46,7 @@ generate_po(){
 
 update_po(){
   echo '[auto-po4a] update_po'
-  $po_update_command -f $po_format -m $ascii_file -M $target_charset -p $po_file
+  $po_update_command -f $po_format -m $ascii_file -M $target_charset -p $po_file --msgid-bugs-address "$po_msgid_bugs_address" --copyright-holder "$po_copyright_holder" --package-name "$po_package_name" --package-version "$po_package_version"
 }
 
 translate(){
@@ -135,8 +135,8 @@ configure(){
   # alternative source sample; see also README
   #sources="$sources alternative://alternative/test/hoge.txt"
 
-  additional_extension_po='.ja.po'
-  additional_extension_translated='.ja'
+  additional_extension_po='.po'
+  insertional_extension_language_code='.ja'
 
   get_command='curl'
   get_options='-O'
