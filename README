@@ -79,3 +79,19 @@ http://www.WonderRabbitProject.net/
 
 (C) 2012 Usagi Ito @ Wonder Rabbit Project.
 
+
+* Change log
+
+new
+
+[628b0f57aa2a3a94481e212ac98a641f982ec8c6]
+
+change to insertion from addition for the position of a language code extension.
+
+  new) abc.txt --> abc.txt.ja.po --> abc.ja.txt
+  old) abc.txt --> abc.txt.ja.po --> abc.txt.ja
+
+[e20e1aad10a76da74778938e0869ea0d9767af08]
+
+the first commit
+
