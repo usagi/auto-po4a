@@ -84,6 +84,10 @@ http://www.WonderRabbitProject.net/
 
 new
 
+[52c3d18585e0df198d5949c5bc0df492053c9190]
+
+bug fix; don't automation git add and commit functions.
+
 [99c5475d6825baabf024b55edde75e6262b15ef9]
 
 bug fix; can't insertion language code to translated file.
