@@ -203,7 +203,7 @@ main(){
   fi
   add_path
   update
-  if [ ! -d .git ]
+  if [ -d .git ]
   then
     git_add_and_commit
   fi
