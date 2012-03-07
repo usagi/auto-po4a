@@ -1,0 +1,81 @@
+* What's this
+
+It's automation tool for a document localization project using po4a.
+
+  it's automation for:
+    + get/update/generate source(s)
+    + generate/update po4 file(s)
+    + generate translated file(s)
+    + git pull/add/commit
+
+* Dependancy
+
+  (must)
+    po4a
+
+  (optional; but need for general)
+    wget|curl|aria2c
+
+  (optional)
+    git
+
+  (optional; for an alternative scheme if you need)
+    perl|runhaskell|python|...
+
+* How to use
+
+1. deploy the bin/* to your environment
+  
+  e.g.)
+    % cp -al bin ~
+    
+      note:
+        you don't forget through the path to ~/bin
+
+2. create a some directory and run `auto-po4a` in the directory
+
+  e.g.)
+    % mkdir /tmp/some-dir
+    % cd /tmp/some-dir
+    % auto-po4a
+
+3. configure "etc/auto-po4a.configure" as you like
+
+  note:
+    some special scheme is enabled at the sources
+      a. "null" scheme
+        it's not do anything for get the get a file.
+        but, afford .po generate/update and translate.
+      b. "alternative" scheme
+        you can use an original script as you like.
+        create "bin" directory. and deply your script.
+        align the script filename to source URL with a few rule:
+          source: alternative://alternative/test/hoge.txt
+          script: bin/alternative-test
+        the script must generate ot get the "hoge.txt".
+
+        note: comment out a source line if need nothing to do.
+
+* How to Uninstall
+
+remove "auto-po4a*" in your deployed place.
+
+  note:
+    use `which` or `find` with "auto-po4" if you need.
+
+* Licence
+
+MIT/X11 License
+http://www.opensource.org/licenses/mit-license
+
+
+* Contacts
+
+usagi@WonderRabbitProject.net
+http://www.WonderRabbitProject.net/
+
+
+* Copyright
+
+(C) 2012 Usagi Ito @ Wonder Rabbit Project.
+
