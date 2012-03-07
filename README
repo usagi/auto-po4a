@@ -84,6 +84,10 @@ http://www.WonderRabbitProject.net/
 
 new
 
+[900744021acf246499f08f525390b7e2b24011b5]
+
+add translate keep ratio. default is 0.
+
 [628b0f57aa2a3a94481e212ac98a641f982ec8c6]
 
 change to insertion from addition for the position of a language code extension.
