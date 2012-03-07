@@ -16,7 +16,7 @@ configure_target(){
   target_directory=${working_directory}/`echo ${1} | sed "s|^.*://||" | sed "s|/${target_file}$||"`
   ascii_file=${target_file}${additional_extension_ascii}
   po_file=${target_file}${insertional_extension_language_code}${additional_extension_po}
-  translated_file=`echo ${target_file} | sed "s|\.[^.]*$||"`${additional_extension_translated}.`echo ${target_file} | sed "s|^.*\.||"`
+  translated_file=`echo ${target_file} | sed "s|\.[^.]*$||"`${insertional_extension_language_code}.`echo ${target_file} | sed "s|^.*\.||"`
 }
 
 get_alternative(){
@@ -40,27 +40,27 @@ get_source(){
 }
 
 generate_po(){
-  echo '[auto-po4a] generate_po'
+  echo "[auto-po4a] generate_po --> $po_file"
   $po_new_command -f $po_format -m $target_file -M $target_charset -p $po_file --msgid-bugs-address "$po_msgid_bugs_address" --copyright-holder "$po_copyright_holder" --package-name "$po_package_name" --package-version "$po_package_version"
 }
 
 update_po(){
-  echo '[auto-po4a] update_po'
+  echo "[auto-po4a] update_po --> $po_file"
   $po_update_command -f $po_format -m $ascii_file -M $target_charset -p $po_file --msgid-bugs-address "$po_msgid_bugs_address" --copyright-holder "$po_copyright_holder" --package-name "$po_package_name" --package-version "$po_package_version"
 }
 
 translate(){
-  echo '[auto-po4a] translate'
+  echo "[auto-po4a] translate --> $translated_file"
   $po_translate_command -f $po_format -m $ascii_file -M $target_charset -p $po_file -l $translated_file -k $po_translate_keep_ratio
 }
 
 create_target_directory(){
-  echo "[auto-po4a] create_target_directory $target_directory"
+  echo "[auto-po4a] create_target_directory --> $target_directory"
   mkdir -p $target_directory
 }
 
 push_directory(){
-  echo "[auto-po4a] push_directory $1"
+  echo "[auto-po4a] push_directory --> $1"
   pushd $1
 }
 
