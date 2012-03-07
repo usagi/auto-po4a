@@ -11,7 +11,7 @@ It's automation tool for a document localization project using po4a.
 * Dependancy
 
   (must)
-    po4a
+    po4a, nkf
 
   (optional; but need for general)
     wget|curl|aria2c
@@ -83,6 +83,10 @@ http://www.WonderRabbitProject.net/
 * Change log
 
 new
+
+[99c5475d6825baabf024b55edde75e6262b15ef9]
+
+bug fix; can't insertion language code to translated file.
 
 [900744021acf246499f08f525390b7e2b24011b5]
 
