@@ -51,7 +51,7 @@ update_po(){
 
 translate(){
   echo '[auto-po4a] translate'
-  $po_translate_command -f $po_format -m $ascii_file -M $target_charset -p $po_file -l $translated_file
+  $po_translate_command -f $po_format -m $ascii_file -M $target_charset -p $po_file -l $translated_file -k $po_translate_keep_ratio
 }
 
 create_target_directory(){
@@ -150,6 +150,7 @@ configure(){
   po_copyright_holder='<ENTER YOUR NAME>'
   po_package_name='<ENTER YOUR PACKAGE>'
   po_package_version=$date
+  po_translate_keep_ratio=0
 
   working_directory='working'
 
