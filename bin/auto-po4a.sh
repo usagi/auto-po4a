@@ -31,15 +31,37 @@ get_alternative(){
   ${base_directory}/bin/`echo $target_directory | sed "s|^${working_directory}/||" | tr / -`
 }
 
-get_source(){
+backup_source(){
   if [ -f $target_file ]
   then
     echo "[auto-po4a] backup the old source file --> ${target_file}.old"
     mv $target_file ${target_file}.old
   fi
+}
+
+check_source_update(){
+  if ! cmp -s $target_file ${target_file}.old
+  then
+    echo '[auto-po4a] the source is not updated'
+    target_is_not_updated=TRUE
+  fi
+}
+
+remove_backup(){
+  if [ -f ${target_file}.old ]
+  then
+    check_source_update
+    echo "[auto-po4a] remove the old source file --> ${target_file}.old"
+    rm ${target_file}.old
+  fi
+}
+
+get_source(){
+  backup_source
   if [ "$target_scheme" = 'null' ]
   then
     echo '[auto-po4a] null scheme'
+    ln ${target_file}.old $target_file
   elif [ "$target_scheme" = 'alternative' ]
   then
     get_alternative
@@ -49,16 +71,7 @@ get_source(){
   fi
   target_charset=(`nkf --guess $target_file`)
   echo "[auto-po4a] target charset is $target_charset"
-  if [ -f ${target_file}.old ]
-  then
-    if ! cmp -s $target_file ${target_file}.old
-    then
-      echo '[auto-po4a] the source is not updated'
-      target_is_not_updated=TRUE
-    fi
-    echo "[auto-po4a] remove the old source file --> ${target_file}.old"
-    rm ${target_file}.old
-  fi
+  remove_backup
 }
 
 generate_po(){
