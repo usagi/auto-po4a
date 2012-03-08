@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: auto-po4a README L10N Thu, 08 Mar 2012 16:27:44 +0900\n"
 "Report-Msgid-Bugs-To: usagi@WonderRabbitProject.net\n"
-"POT-Creation-Date: 2012-03-08 18:01+0900\n"
-"PO-Revision-Date: 2012-03-08 18:01+0900\n"
+"POT-Creation-Date: 2012-03-08 20:41+0900\n"
+"PO-Revision-Date: 2012-03-08 20:49+0900\n"
 "Last-Translator: Usagi Ito <usagi@WonderRabbitProject>\n"
 "Language-Team: Usagi Ito <usagi@WonderRabbitProject>\n"
 "Language: \n"
@@ -240,35 +240,93 @@ msgstr "新しい"
 
 #. type: Plain text
 #: README:88
-msgid "[76a7855d90a8f40a84353ac770f00e3c833d3a89]"
-msgstr ""
+msgid "[71ec2a1b50d748c443c4b9c06db43d8999f6b942]"
+msgstr "[71ec2a1b50d748c443c4b9c06db43d8999f6b942]"
 
 #. type: Plain text
 #: README:90
-msgid "bug fix; fix translated filename from no-extension file."
-msgstr ""
+msgid "new feature; check the source update, and pass update po if needn't."
+msgstr "新機能; ソースの更新を確認し、もし必要無ければpoの更新を飛ばします。"
 
 #. type: Plain text
-#: README:93
+#: README:92
+#, no-wrap
+msgid "  note) current process flow; the new feature\n"
+msgstr "  ノート) 現在の処理の流れ; 新機能部分\n"
+
+#. type: Bullet: '    0. '
+#: README:101
+msgid "git pull if need"
+msgstr "必要なら git pull します"
+
+#. type: Bullet: '    1. '
+#: README:101
+msgid "### backup old source if available ###"
+msgstr "### 必要なら現在のソースを old としてバックアップします ###"
+
+#. type: Bullet: '    2. '
+#: README:101
+msgid "get new source"
+msgstr "新たにソースを取得します"
+
+#. type: Bullet: '    3. '
+#: README:101
+msgid "check update"
+msgstr "更新を確認します"
+
+#. type: Bullet: '    4. '
+#: README:101
+msgid "### remove old source if available ###"
+msgstr "### 必要なら古いソースを削除します ###"
+
+#. type: Bullet: '    5. '
+#: README:101
+msgid "update po ### if need ###"
+msgstr "### 必要ならば ### po を更新します"
+
+#. type: Bullet: '    6. '
+#: README:101
+msgid "translate using po"
+msgstr " po を用いて翻訳します"
+
+#. type: Bullet: '    7. '
+#: README:101
+msgid "git add/commit if need"
+msgstr "必要ならば git add/commit します"
+
+#. type: Plain text
+#: README:103
+msgid "[76a7855d90a8f40a84353ac770f00e3c833d3a89]"
+msgstr "[76a7855d90a8f40a84353ac770f00e3c833d3a89]"
+
+#. type: Plain text
+#: README:105
+msgid "bug fix; fix translated filename from no-extension file."
+msgstr "バグ修正; 拡張子の無いファイルからの翻訳済みファイル名を修正しました。"
+
+#. type: Plain text
+#: README:108
 #, no-wrap
 msgid ""
 "  old) README --> README.ja.po --> README.ja.README\n"
 "  new) README --> README.ja.po --> README.ja\n"
 msgstr ""
+"  旧) README --> README.ja.po --> README.ja.README\n"
+"  新) README --> README.ja.po --> README.ja\n"
 
 #. type: Plain text
-#: README:95
+#: README:110
 msgid "[96d863a0dfeec1585c4596e3201d367c4c3e2980]"
 msgstr "[96d863a0dfeec1585c4596e3201d367c4c3e2980]"
 
 #. type: Plain text
-#: README:97
+#: README:112
 msgid "add flag auto_git in configure and implement switching the function."
 msgstr ""
 "設定に auto_git フラグを追加して、それによる切り替えの機能実装もしたよ。"
 
 #. type: Plain text
-#: README:101
+#: README:116
 #, no-wrap
 msgid ""
 "  configure)\n"
@@ -280,56 +338,56 @@ msgstr ""
 "    無効にする: auto_git=FALSE\n"
 
 #. type: Plain text
-#: README:103
+#: README:118
 #, no-wrap
 msgid "      note) this function is disable if you don't define auto_git\n"
 msgstr "      ノート) もし auto_git を定義しない場合、この機能は無効化されます\n"
 
 #. type: Plain text
-#: README:105
+#: README:120
 msgid "[52c3d18585e0df198d5949c5bc0df492053c9190]"
 msgstr "[52c3d18585e0df198d5949c5bc0df492053c9190]"
 
 #. type: Plain text
-#: README:107
+#: README:122
 msgid "bug fix; don't automation git add and commit functions."
 msgstr "バグ修正; git add/commit 機能の自動化が動作しなかった不具合を修正"
 
 #. type: Plain text
-#: README:109
+#: README:124
 msgid "[99c5475d6825baabf024b55edde75e6262b15ef9]"
 msgstr "[99c5475d6825baabf024b55edde75e6262b15ef9]"
 
 #. type: Plain text
-#: README:111
+#: README:126
 msgid "bug fix; can't insertion language code to translated file."
 msgstr ""
 "バグ修正; 翻訳済みファイルへと言語コードが挿入されなかった不具合を修正。"
 
 #. type: Plain text
-#: README:113
+#: README:128
 msgid "[900744021acf246499f08f525390b7e2b24011b5]"
 msgstr "[900744021acf246499f08f525390b7e2b24011b5]"
 
 #. type: Plain text
-#: README:115
+#: README:130
 msgid "add translate keep ratio. default is 0."
 msgstr "翻訳版の生成に必要な最低翻訳率の設定を追加。デフォルトは 0 です。"
 
 #. type: Plain text
-#: README:117
+#: README:132
 msgid "[628b0f57aa2a3a94481e212ac98a641f982ec8c6]"
 msgstr "[628b0f57aa2a3a94481e212ac98a641f982ec8c6]"
 
 #. type: Plain text
-#: README:119
+#: README:134
 msgid ""
 "change to insertion from addition for the position of a language code "
 "extension."
 msgstr "言語コードの拡張子が追加じゃなくて挿入されるように変えたよ。"
 
 #. type: Plain text
-#: README:122
+#: README:137
 #, no-wrap
 msgid ""
 "  new) abc.txt --> abc.txt.ja.po --> abc.ja.txt\n"
@@ -339,11 +397,11 @@ msgstr ""
 "  旧) abc.txt --> abc.txt.ja.po --> abc.txt.ja\n"
 
 #. type: Plain text
-#: README:124
+#: README:139
 msgid "[e20e1aad10a76da74778938e0869ea0d9767af08]"
 msgstr "[e20e1aad10a76da74778938e0869ea0d9767af08]"
 
 #. type: Plain text
-#: README:126
+#: README:141
 msgid "the first commit"
 msgstr "最初のコミットだよ"

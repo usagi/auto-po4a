@@ -82,12 +82,27 @@ usagi@WonderRabbitProject.net http://www.WonderRabbitProject.net/
 
 新しい
 
+[71ec2a1b50d748c443c4b9c06db43d8999f6b942]
+
+新機能; ソースの更新を確認し、もし必要無ければpoの更新を飛ばします。
+
+  ノート) 現在の処理の流れ; 新機能部分
+    
+    0. 必要なら git pull します
+    1. ### 必要なら現在のソースを old としてバックアップします ###
+    2. 新たにソースを取得します
+    3. 更新を確認します
+    4. ### 必要なら古いソースを削除します ###
+    5. ### 必要ならば ### po を更新します
+    6.  po を用いて翻訳します
+    7. 必要ならば git add/commit します
+
 [76a7855d90a8f40a84353ac770f00e3c833d3a89]
 
-bug fix; fix translated filename from no-extension file.
+バグ修正; 拡張子の無いファイルからの翻訳済みファイル名を修正しました。
 
-  old) README --> README.ja.po --> README.ja.README
-  new) README --> README.ja.po --> README.ja
+  旧) README --> README.ja.po --> README.ja.README
+  新) README --> README.ja.po --> README.ja
 
 [96d863a0dfeec1585c4596e3201d367c4c3e2980]
 
