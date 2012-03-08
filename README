@@ -84,6 +84,16 @@ http://www.WonderRabbitProject.net/
 
 new
 
+[96d863a0dfeec1585c4596e3201d367c4c3e2980]
+
+add flag auto_git in configure and implement switching the function.
+
+  configure)
+    enabling auto git pull/add/commit: auto_git=TRUE
+    disabling it: auto_git=FALSE
+
+      note) this function is disable if you don't define auto_git
+
 [52c3d18585e0df198d5949c5bc0df492053c9190]
 
 bug fix; don't automation git add and commit functions.

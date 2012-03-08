@@ -154,6 +154,8 @@ configure(){
 
   working_directory='working'
 
+  auto_git=TRUE
+
   additional_paths="$additional_paths /usr/bin/vendor_perl"
 
   base_directory=`pwd`
@@ -194,16 +196,16 @@ main(){
   echo '[auto-po4a] start'
   load_configure
   configure
-  if [ ! -d .git ]
+  if [ "$auto_git" = 'TRUE'  -a ! -d .git ]
   then
     git_init
-  elif [ `git config remote.origin.url` ]
+  elif [ "$auto_git" = 'TRUE' -a `git config remote.origin.url` ]
   then
     git_pull
   fi
   add_path
   update
-  if [ -d .git ]
+  if [ "$auto_git" = 'TRUE' -a -d .git ]
   then
     git_add_and_commit
   fi
