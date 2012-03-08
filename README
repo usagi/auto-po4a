@@ -84,6 +84,21 @@ http://www.WonderRabbitProject.net/
 
 new
 
+[71ec2a1b50d748c443c4b9c06db43d8999f6b942]
+
+new feature; check the source update, and pass update po if needn't.
+
+  note) current process flow; the new feature
+    
+    0. git pull if need
+    1. ### backup old source if available ###
+    2. get new source
+    3. check update
+    4. ### remove old source if available ###
+    5. update po ### if need ###
+    6. translate using po
+    7. git add/commit if need
+
 [76a7855d90a8f40a84353ac770f00e3c833d3a89]
 
 bug fix; fix translated filename from no-extension file.
