@@ -1,0 +1,331 @@
+# auto-po4a README.L10N
+# Copyright (C) 2010 Usagi Ito @ Wonder Rabbit Project
+# This file is distributed under the same license as the auto-po4a package.
+# Usagi Ito <usagi@WonderRabbitProject>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: auto-po4a README L10N Thu, 08 Mar 2012 16:27:44 +0900\n"
+"Report-Msgid-Bugs-To: usagi@WonderRabbitProject.net\n"
+"POT-Creation-Date: 2012-03-08 16:27+0900\n"
+"PO-Revision-Date: 2012-03-08 18:01+0900\n"
+"Last-Translator: Usagi Ito <usagi@WonderRabbitProject>\n"
+"Language-Team: Usagi Ito <usagi@WonderRabbitProject>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Bullet: '* '
+#: README:2
+msgid "What's this"
+msgstr "これはなに？"
+
+#. type: Plain text
+#: README:4
+msgid "It's automation tool for a document localization project using po4a."
+msgstr ""
+"これは po4a を用いるドキュメントローカライズプロジェクトの自動化ツールです。"
+
+#. type: Plain text
+#: README:10
+#, no-wrap
+msgid ""
+"  it's automation for:\n"
+"    + get/update/generate source(s)\n"
+"    + generate/update po4 file(s)\n"
+"    + generate translated file(s)\n"
+"    + git pull/add/commit\n"
+msgstr ""
+"  以下の様な自動化ができます:\n"
+"    + ソース（原文）ファイル（群）の取得/更新/生成\n"
+"    + po4 ファイル（群）の生成/更新\n"
+"    + 翻訳済みファイル（群）の生成\n"
+"    + git の pull/add/commit\n"
+
+#. type: Bullet: '* '
+#: README:12
+msgid "Dependancy"
+msgstr "依存性"
+
+#. type: Plain text
+#: README:15
+#, no-wrap
+msgid ""
+"  (must)\n"
+"    po4a, nkf\n"
+msgstr ""
+"  (必須)\n"
+"    po4a、 nkf\n"
+
+#. type: Plain text
+#: README:18
+#, no-wrap
+msgid ""
+"  (optional; but need for general)\n"
+"    wget|curl|aria2c\n"
+msgstr ""
+"  (必要に応じて; 但し、一般には必要でしょう)\n"
+"    wget|curl|aria2c\n"
+
+#. type: Plain text
+#: README:21
+#, no-wrap
+msgid ""
+"  (optional)\n"
+"    git\n"
+msgstr ""
+"  (必要に応じて)\n"
+"    git\n"
+
+#. type: Plain text
+#: README:24
+#, no-wrap
+msgid ""
+"  (optional; for an alternative scheme if you need)\n"
+"    perl|runhaskell|python|...\n"
+msgstr ""
+"  (必要に応じて; もし alternative スキームの為に必要があれば)\n"
+"    perl|runhaskell|python|...\n"
+
+#. type: Bullet: '* '
+#: README:26
+msgid "How to use"
+msgstr "どうやって使うの？"
+
+#. type: Bullet: '1. '
+#: README:28
+msgid "deploy the bin/* to your environment"
+msgstr "bin/* をあなたの環境に配置します"
+
+#. type: Plain text
+#: README:31
+#, no-wrap
+msgid ""
+"  e.g.)\n"
+"    % cp -al bin ~\n"
+msgstr ""
+"  例えば)\n"
+"    % cp -al bin ~\n"
+
+#. type: Plain text
+#: README:34
+#, no-wrap
+msgid ""
+"      note:\n"
+"        you don't forget through the path to ~/bin\n"
+msgstr ""
+"      ノート:\n"
+"        ~/bin にパスを通し忘れない様にね\n"
+
+#. type: Bullet: '2. '
+#: README:36
+msgid "create a some directory and run `auto-po4a` in the directory"
+msgstr "適当なディレクトリを作成して `auto-po4a` を実行します"
+
+#. type: Plain text
+#: README:41
+#, no-wrap
+msgid ""
+"  e.g.)\n"
+"    % mkdir /tmp/some-dir\n"
+"    % cd /tmp/some-dir\n"
+"    % auto-po4a\n"
+msgstr ""
+"  例えば)\n"
+"    % mkdir /tmp/some-dir\n"
+"    % cd /tmp/some-dir\n"
+"    % auto-po4a\n"
+
+#. type: Bullet: '3. '
+#: README:43
+msgid "configure \"etc/auto-po4a.configure\" as you like"
+msgstr "\"etc/auto-po4a.configure\" をお好みに設定します"
+
+#. type: Plain text
+#: README:56
+#, no-wrap
+msgid ""
+"  note:\n"
+"    some special scheme is enabled at the sources\n"
+"      a. \"null\" scheme\n"
+"        it's not do anything for get the get a file.\n"
+"        but, afford .po generate/update and translate.\n"
+"      b. \"alternative\" scheme\n"
+"        you can use an original script as you like.\n"
+"        create \"bin\" directory. and deply your script.\n"
+"        align the script filename to source URL with a few rule:\n"
+"          source: alternative://alternative/test/hoge.txt\n"
+"          script: bin/alternative-test\n"
+"        the script must generate ot get the \"hoge.txt\".\n"
+msgstr ""
+"  ノート:\n"
+"    sources では幾つかの特別なスキームが有効です\n"
+"      a. \"null\" スキーム\n"
+"        ファイル取得時に何もしません。\n"
+"        但し、 .po の生成/更新、翻訳は処理します。\n"
+"      b. \"alternative\" スキーム\n"
+"        お好みに応じて独自のスクリプトを実行する事ができます。\n"
+"        \"bin\" ディレクトリを作成し、そこにあなたのスクリプトを配置しましょう。\n"
+"        スクリプトのファイル名は以下の様にソースURLに合わせておきます:\n"
+"          ソース    : alternative://alternative/test/hoge.txt\n"
+"          スクリプト: bin/alternative-test\n"
+"        このスクリプトでは\"hoge.txt\"を生成し忘れない様にしてくださいね。\n"
+
+#. type: Plain text
+#: README:58
+#, no-wrap
+msgid "        note: comment out a source line if need nothing to do.\n"
+msgstr "        ノート: ソースの行をコメントアウトすれば本当に何も処理しなくもできますよ。\n"
+
+#. type: Bullet: '* '
+#: README:60
+msgid "How to Uninstall"
+msgstr "アンインストールしたくなったら"
+
+#. type: Plain text
+#: README:62
+msgid "remove \"auto-po4a*\" in your deployed place."
+msgstr "\"auto-po4a*\" を配置先から削除します。"
+
+#. type: Plain text
+#: README:65
+#, no-wrap
+msgid ""
+"  note:\n"
+"    use `which` or `find` with \"auto-po4\" if you need.\n"
+msgstr ""
+"  ノート:\n"
+"    もしもどこに配置したのかお忘れなら`which`や`find`で\"auto-po4\"を探すと良いでしょう。\n"
+
+#. type: Bullet: '* '
+#: README:67
+msgid "Licence"
+msgstr "ライセンス"
+
+#. type: Plain text
+#: README:70
+msgid "MIT/X11 License http://www.opensource.org/licenses/mit-license"
+msgstr "MIT/X11 License http://www.opensource.org/licenses/mit-license"
+
+#. type: Bullet: '* '
+#: README:73
+msgid "Contacts"
+msgstr "連絡先"
+
+#. type: Plain text
+#: README:76
+msgid "usagi@WonderRabbitProject.net http://www.WonderRabbitProject.net/"
+msgstr "usagi@WonderRabbitProject.net http://www.WonderRabbitProject.net/"
+
+#. type: Bullet: '* '
+#: README:79
+msgid "Copyright"
+msgstr "著作権"
+
+#. type: Plain text
+#: README:81
+msgid "(C) 2012 Usagi Ito @ Wonder Rabbit Project."
+msgstr "(C) 2012 伊藤 兎 @ Wonder Rabbit Project."
+
+#. type: Bullet: '* '
+#: README:84
+msgid "Change log"
+msgstr "更新履歴"
+
+#. type: Plain text
+#: README:86
+msgid "new"
+msgstr "新しい"
+
+#. type: Plain text
+#: README:88
+msgid "[96d863a0dfeec1585c4596e3201d367c4c3e2980]"
+msgstr "[96d863a0dfeec1585c4596e3201d367c4c3e2980]"
+
+#. type: Plain text
+#: README:90
+msgid "add flag auto_git in configure and implement switching the function."
+msgstr ""
+"設定に auto_git フラグを追加して、それによる切り替えの機能実装もしたよ。"
+
+#. type: Plain text
+#: README:94
+#, no-wrap
+msgid ""
+"  configure)\n"
+"    enabling auto git pull/add/commit: auto_git=TRUE\n"
+"    disabling it: auto_git=FALSE\n"
+msgstr ""
+"  設定)\n"
+"    git pull/add/commit の自動化を有効にする: auto_git=TRUE\n"
+"    無効にする: auto_git=FALSE\n"
+
+#. type: Plain text
+#: README:96
+#, no-wrap
+msgid "      note) this function is disable if you don't define auto_git\n"
+msgstr "      ノート) もし auto_git を定義しない場合、この機能は無効化されます\n"
+
+#. type: Plain text
+#: README:98
+msgid "[52c3d18585e0df198d5949c5bc0df492053c9190]"
+msgstr "[52c3d18585e0df198d5949c5bc0df492053c9190]"
+
+#. type: Plain text
+#: README:100
+msgid "bug fix; don't automation git add and commit functions."
+msgstr "バグ修正; git add/commit 機能の自動化が動作しなかった不具合を修正"
+
+#. type: Plain text
+#: README:102
+msgid "[99c5475d6825baabf024b55edde75e6262b15ef9]"
+msgstr "[99c5475d6825baabf024b55edde75e6262b15ef9]"
+
+#. type: Plain text
+#: README:104
+msgid "bug fix; can't insertion language code to translated file."
+msgstr ""
+"バグ修正; 翻訳済みファイルへと言語コードが挿入されなかった不具合を修正。"
+
+#. type: Plain text
+#: README:106
+msgid "[900744021acf246499f08f525390b7e2b24011b5]"
+msgstr "[900744021acf246499f08f525390b7e2b24011b5]"
+
+#. type: Plain text
+#: README:108
+msgid "add translate keep ratio. default is 0."
+msgstr "翻訳版の生成に必要な最低翻訳率の設定を追加。デフォルトは 0 です。"
+
+#. type: Plain text
+#: README:110
+msgid "[628b0f57aa2a3a94481e212ac98a641f982ec8c6]"
+msgstr "[628b0f57aa2a3a94481e212ac98a641f982ec8c6]"
+
+#. type: Plain text
+#: README:112
+msgid ""
+"change to insertion from addition for the position of a language code "
+"extension."
+msgstr "言語コードの拡張子が追加じゃなくて挿入されるように変えたよ。"
+
+#. type: Plain text
+#: README:115
+#, no-wrap
+msgid ""
+"  new) abc.txt --> abc.txt.ja.po --> abc.ja.txt\n"
+"  old) abc.txt --> abc.txt.ja.po --> abc.txt.ja\n"
+msgstr ""
+"  新) abc.txt --> abc.txt.ja.po --> abc.ja.txt\n"
+"  旧) abc.txt --> abc.txt.ja.po --> abc.txt.ja\n"
+
+#. type: Plain text
+#: README:117
+msgid "[e20e1aad10a76da74778938e0869ea0d9767af08]"
+msgstr "[e20e1aad10a76da74778938e0869ea0d9767af08]"
+
+#. type: Plain text
+#: README:119
+msgid "the first commit"
+msgstr "最初のコミットだよ"

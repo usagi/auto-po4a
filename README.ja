@@ -1,0 +1,124 @@
+* これはなに？
+
+これは po4a を用いるドキュメントローカライズプロジェクトの自動化ツールです。
+
+  以下の様な自動化ができます:
+    + ソース（原文）ファイル（群）の取得/更新/生成
+    + po4 ファイル（群）の生成/更新
+    + 翻訳済みファイル（群）の生成
+    + git の pull/add/commit
+
+* 依存性
+
+  (必須)
+    po4a、 nkf
+
+  (必要に応じて; 但し、一般には必要でしょう)
+    wget|curl|aria2c
+
+  (必要に応じて)
+    git
+
+  (必要に応じて; もし alternative スキームの為に必要があれば)
+    perl|runhaskell|python|...
+
+* どうやって使うの？
+
+1. bin/* をあなたの環境に配置します
+  
+  例えば)
+    % cp -al bin ~
+    
+      ノート:
+        ~/bin にパスを通し忘れない様にね
+
+2. 適当なディレクトリを作成して `auto-po4a` を実行します
+
+  例えば)
+    % mkdir /tmp/some-dir
+    % cd /tmp/some-dir
+    % auto-po4a
+
+3. "etc/auto-po4a.configure" をお好みに設定します
+
+  ノート:
+    sources では幾つかの特別なスキームが有効です
+      a. "null" スキーム
+        ファイル取得時に何もしません。
+        但し、 .po の生成/更新、翻訳は処理します。
+      b. "alternative" スキーム
+        お好みに応じて独自のスクリプトを実行する事ができます。
+        "bin" ディレクトリを作成し、そこにあなたのスクリプトを配置しましょう。
+        スクリプトのファイル名は以下の様にソースURLに合わせておきます:
+          ソース    : alternative://alternative/test/hoge.txt
+          スクリプト: bin/alternative-test
+        このスクリプトでは"hoge.txt"を生成し忘れない様にしてくださいね。
+
+        ノート: ソースの行をコメントアウトすれば本当に何も処理しなくもできますよ。
+
+* アンインストールしたくなったら
+
+"auto-po4a*" を配置先から削除します。
+
+  ノート:
+    もしもどこに配置したのかお忘れなら`which`や`find`で"auto-po4"を探すと良いでしょう。
+
+* ライセンス
+
+MIT/X11 License http://www.opensource.org/licenses/mit-license
+
+
+* 連絡先
+
+usagi@WonderRabbitProject.net http://www.WonderRabbitProject.net/
+
+
+* 著作権
+
+(C) 2012 伊藤 兎 @ Wonder Rabbit Project.
+
+
+* 更新履歴
+
+新しい
+
+[76a7855d90a8f40a84353ac770f00e3c833d3a89]
+
+bug fix; fix translated filename from no-extension file.
+
+  old) README --> README.ja.po --> README.ja.README
+  new) README --> README.ja.po --> README.ja
+
+[96d863a0dfeec1585c4596e3201d367c4c3e2980]
+
+設定に auto_git フラグを追加して、それによる切り替えの機能実装もしたよ。
+
+  設定)
+    git pull/add/commit の自動化を有効にする: auto_git=TRUE
+    無効にする: auto_git=FALSE
+
+      ノート) もし auto_git を定義しない場合、この機能は無効化されます
+
+[52c3d18585e0df198d5949c5bc0df492053c9190]
+
+バグ修正; git add/commit 機能の自動化が動作しなかった不具合を修正
+
+[99c5475d6825baabf024b55edde75e6262b15ef9]
+
+バグ修正; 翻訳済みファイルへと言語コードが挿入されなかった不具合を修正。
+
+[900744021acf246499f08f525390b7e2b24011b5]
+
+翻訳版の生成に必要な最低翻訳率の設定を追加。デフォルトは 0 です。
+
+[628b0f57aa2a3a94481e212ac98a641f982ec8c6]
+
+言語コードの拡張子が追加じゃなくて挿入されるように変えたよ。
+
+  新) abc.txt --> abc.txt.ja.po --> abc.ja.txt
+  旧) abc.txt --> abc.txt.ja.po --> abc.txt.ja
+
+[e20e1aad10a76da74778938e0869ea0d9767af08]
+
+最初のコミットだよ
+
