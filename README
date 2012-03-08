@@ -11,7 +11,7 @@ It's automation tool for a document localization project using po4a.
 * Dependancy
 
   (must)
-    po4a, nkf
+    po4a, nkf, cmp
 
   (optional; but need for general)
     wget|curl|aria2c
