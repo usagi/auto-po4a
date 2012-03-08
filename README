@@ -84,6 +84,13 @@ http://www.WonderRabbitProject.net/
 
 new
 
+[76a7855d90a8f40a84353ac770f00e3c833d3a89]
+
+bug fix; fix translated filename from no-extension file.
+
+  old) README --> README.ja.po --> README.ja.README
+  new) README --> README.ja.po --> README.ja
+
 [96d863a0dfeec1585c4596e3201d367c4c3e2980]
 
 add flag auto_git in configure and implement switching the function.
