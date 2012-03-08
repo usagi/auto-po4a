@@ -32,6 +32,11 @@ get_alternative(){
 }
 
 get_source(){
+  if [ -f $target_file ]
+  then
+    echo "[auto-po4a] backup the old source file --> ${target_file}.old"
+    mv $target_file ${target_file}.old
+  fi
   if [ "$target_scheme" = 'null' ]
   then
     echo '[auto-po4a] null scheme'
@@ -44,6 +49,16 @@ get_source(){
   fi
   target_charset=(`nkf --guess $target_file`)
   echo "[auto-po4a] target charset is $target_charset"
+  if [ -f ${target_file}.old ]
+  then
+    if ! cmp -s $target_file ${target_file}.old
+    then
+      echo '[auto-po4a] the source is not updated'
+      target_is_not_updated=TRUE
+    fi
+    echo "[auto-po4a] remove the old source file --> ${target_file}.old"
+    rm ${target_file}.old
+  fi
 }
 
 generate_po(){
@@ -52,8 +67,13 @@ generate_po(){
 }
 
 update_po(){
-  echo "[auto-po4a] update_po --> $po_file"
-  $po_update_command -f $po_format -m $ascii_file -M $target_charset -p $po_file --msgid-bugs-address "$po_msgid_bugs_address" --copyright-holder "$po_copyright_holder" --package-name "$po_package_name" --package-version "$po_package_version"
+  if [ "$target_is_not_updated" = 'TRUE' ]
+  then
+    echo '[auto-po4a] update_po is passed'
+  else
+    echo "[auto-po4a] update_po --> $po_file"
+    $po_update_command -f $po_format -m $ascii_file -M $target_charset -p $po_file --msgid-bugs-address "$po_msgid_bugs_address" --copyright-holder "$po_copyright_holder" --package-name "$po_package_name" --package-version "$po_package_version"
+  fi
 }
 
 translate(){
