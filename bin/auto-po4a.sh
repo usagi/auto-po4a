@@ -16,7 +16,14 @@ configure_target(){
   target_directory=${working_directory}/`echo ${1} | sed "s|^.*://||" | sed "s|/${target_file}$||"`
   ascii_file=${target_file}${additional_extension_ascii}
   po_file=${target_file}${insertional_extension_language_code}${additional_extension_po}
-  translated_file=`echo ${target_file} | sed "s|\.[^.]*$||"`${insertional_extension_language_code}.`echo ${target_file} | sed "s|^.*\.||"`
+  target_file_extension=`echo ${target_file} | sed "s|^.*\.||"`
+  if [ "${target_file_extension}" = "${target_file}" ]
+  then
+    target_file_extension=''
+  else
+    target_file_extension=.${target_file_extension}
+  fi
+  translated_file=`echo ${target_file} | sed "s|\.[^.]*$||"`${insertional_extension_language_code}${target_file_extension}
 }
 
 get_alternative(){
