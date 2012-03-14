@@ -52,6 +52,8 @@ check_source_update(){
   then
     cout "the source is not updated"
     target_is_not_updated=true
+  else
+    target_is_not_updated=false
   fi
 }
 
