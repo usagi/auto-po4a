@@ -88,7 +88,7 @@ generate_po(){
 }
 
 update_po(){
-  if [ $target_is_not_updated=true ]
+  if $target_is_not_updated
   then
     cout 'update_po is passed'
   else
@@ -174,7 +174,7 @@ generate_configure(){
 configure(){
 
   # time stump
-  date=`date --rfc-2822`
+  #date=`date --rfc-2822`
 
   # http source sample
   #sources="$sources http://uncyclopedia.wikia.com/wiki/Main_Page"
@@ -182,6 +182,39 @@ configure(){
   #sources="$sources null://const-static/document.txt"
   # alternative source sample; see also README
   #sources="$sources alternative://alternative/test/hoge.txt"
+
+  #additional_extension_po='.po'
+  #insertional_extension_language_code='.ja'
+
+  #get_command='curl'
+  #get_options='-O'
+
+  #po_new_command='po4a-gettextize'
+  #po_update_command='po4a-updatepo'
+  #po_translate_command='po4a-translate'
+  #po_format='text'
+  #po_master_charset='utf-8'
+  #po_msgid_bugs_address='<ENTER YOUR EMAIL>'
+  #po_copyright_holder='<ENTER YOUR NAME>'
+  #po_package_name='<ENTER YOUR PACKAGE>'
+  #po_package_version=$date
+  #po_translate_keep_ratio=0
+
+  #working_directory='working'
+
+  #auto_git=false
+
+  additional_paths="$additional_paths /usr/bin/vendor_perl"
+
+  #base_directory=`pwd`
+}
+EOD
+
+}
+
+configure_default(){
+  date=`date --rfc-2822`
+  sources=()
 
   additional_extension_po='.po'
   insertional_extension_language_code='.ja'
@@ -202,14 +235,11 @@ configure(){
 
   working_directory='working'
 
-  auto_git=true
+  auto_git=false
 
-  additional_paths="$additional_paths /usr/bin/vendor_perl"
+  additional_paths=()
 
   base_directory=`pwd`
-}
-EOD
-
 }
 
 load_configure(){
@@ -217,6 +247,7 @@ load_configure(){
   
   if [ -d etc -a -r etc/auto-po4a.configure ]
   then
+    configure_default
     . etc/auto-po4a.configure
   else
     
@@ -244,16 +275,16 @@ main(){
   cout 'start'
   load_configure
   configure
-  if [ $auto_git=true -a ! -d .git ]
+  if $auto_git && [ ! -d .git ]
   then
     git_init
-  elif [ $auto_git=true -a `git config remote.origin.url` ]
+  elif $auto_git && [ `git config remote.origin.url` ]
   then
     git_pull
   fi
   add_path
   update
-  if [ $auto_git=true -a -d .git ]
+  if $auto_git [ -d .git ]
   then
     git_add_and_commit
   fi
