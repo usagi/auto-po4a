@@ -1,32 +1,4 @@
 configure(){
-
-  # time stump
-  date=`date --rfc-2822`
-
   sources="$sources null://README/README"
-  
-  additional_extension_po='.po'
-  insertional_extension_language_code='.ja'
-
-  get_command='curl'
-  get_options='-O'
-
-  po_new_command='po4a-gettextize'
-  po_update_command='po4a-updatepo'
-  po_translate_command='po4a-translate'
-  po_format='text'
-  po_master_charset='utf-8'
-  po_msgid_bugs_address='usagi@WonderRabbitProject.net'
-  po_copyright_holder='Usagi Ito'
-  po_package_name='auto-po4a README L10N'
-  po_package_version=$date
-  po_translate_keep_ratio=0
-
-  working_directory='working'
-
-  auto_git=FALSE
-
   additional_paths="$additional_paths /usr/bin/vendor_perl"
-
-  base_directory=`pwd`
 }

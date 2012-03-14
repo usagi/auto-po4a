@@ -10,8 +10,8 @@
 
 * 依存性
 
-  (必須)
-    po4a、 nkf
+  (must)
+    po4a, nkf, cmp
 
   (必要に応じて; 但し、一般には必要でしょう)
     wget|curl|aria2c
@@ -81,6 +81,12 @@ usagi@WonderRabbitProject.net http://www.WonderRabbitProject.net/
 * 更新履歴
 
 新しい
+
+[1a77525e4f6c3f8121b7308a2714d4c715c9ac03]
+
+bug fix; auto_git. add default configure function,and you can compactize for
+your etc/auto-po4a.configure. see also the
+README.L10N/etc/auto-po4a.configure is a sample. :)
 
 [71ec2a1b50d748c443c4b9c06db43d8999f6b942]
 
